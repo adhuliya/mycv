@@ -1,0 +1,34 @@
+//  1. Save the file as structure.gv
+//  2. Convert to jpg
+//      dot -Tjpg structure.gv -o structure.jpg
+
+digraph G {
+    "pst-rel-points.sty" [style=filled,color=".7 .3 1.0"];
+    "report.sty" [style=filled,color=".7 .3 1.0"];
+    "Title Page" [shape=box];
+    "Front Matter" [shape=box];
+    "Chapter 1" [shape=box];
+    "Chapter 2" [shape=box];
+    "Chapter 3" [shape=box];
+    "Chapter 4" [shape=box];
+    "Chapter 5" [shape=box];
+    "Appendix" [shape=box];
+
+    "pst-rel-points.sty" -> "report.sty";
+    "report.sty" -> "main.tex";
+    "titlepage.tex" -> "Title Page" -> "main.tex";
+    "frontmatter.tex" -> "Front Matter" -> "main.tex";
+    "introduction.tex" -> "Chapter 1" -> "main.tex";
+    "literaturesurvey.tex" -> "Chapter 2" -> "main.tex";
+    "system.tex" -> "Chapter 3" -> "main.tex";
+    "examples.tex" -> "Chapter 4" -> "main.tex";
+    "conclusion.tex" -> "Chapter 5" -> "main.tex";
+    "abbreviations.tex" -> "Appendix";
+    "theanalysesused.tex" -> "Appendix";
+    "Appendix" -> "main.tex";
+    "references.bib" -> "main.tex";
+
+    "main.tex" -> "Makefile" [style=dotted];
+    "Makefile" -> "main.pdf" [style=dotted, label="make"];
+    "Makefile" -> "make && evince main.pdf &" [style=dotted, label="make show"];
+}

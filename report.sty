@@ -1,0 +1,362 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% This file is to be used with the document class report.
+%% Author: Anshuman Dhuliya, IIT Bombay 2016
+%% Email: dhuliya@cse.iitb.ac.in
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Absolute Basics
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc} % sets text encoding to utf8
+\usepackage{graphicx} % to include images into the document
+\usepackage{caption} % for subfigures
+%\captionsetup{position=top} %\captionsetup{position=bottom}
+\usepackage{subcaption} % for subfigures
+%\usepackage{fullpage} % reduces the margins to 1 inch
+%\thispagestyle{style} %style=plain, headings, empty
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Page Layout
+%% fancyhdr: R:right,L:left,C:center,O:odd,E:even
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[a4paper,width=140mm,top=25mm,bottom=25mm,bindingoffset=6mm]{geometry}
+\usepackage{emptypage}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy} % (fancy,plain,empty) adds fancy header and footer
+
+\fancyhead{}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+\fancyfoot{}
+\fancyfoot[RO,LE]{\thepage}
+\fancyfoot[LO,RE]{Synergistic Program Analysis : SPA}
+\renewcommand{\chaptermark}[1]%
+{\markboth{\MakeUppercase{Chapter \thechapter.\ #1}}{}}
+\renewcommand{\sectionmark}[1]%
+{\markright{\MakeUppercase{\thesection.\ #1}}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+\fancyhf{}% clear all header and footer fields
+\fancyfoot[RO,LE]{\bfseries \thepage}% except the center
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0.4pt}%
+}
+
+\fancypagestyle{empty}{%
+\fancyhf{}% clear all header and footer fields
+\renewcommand{\headrulewidth}{0pt}%
+\renewcommand{\footrulewidth}{0pt}%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Makes references, and table of contents clickable
+%% Sets basic color settings for hyperlinks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[pdfpagelabels,bookmarks,hyperindex,hyperfigures]{hyperref}
+\hypersetup{
+    bookmarks=true,
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=RoyalBlue,    % color of internal links (change box color with linkbordercolor)
+    citecolor=BurntOrange,  % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% fancyvrb:
+%% Usage:
+%%  \begin{Verbatim}[commandchars=\\\{\}]
+%%      \textit{% This is a comment}
+%%      First verbatim line.
+%%      \fbox{Second} verbatim line.
+%%      \textcolor{red}{Third} verbatim line.
+%%  \end{Verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyvrb}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Inline verbatim:
+%% use 'Verbatim' environment from fancyvrb package only.
+%% use this for inline verbatim
+%% Usage:
+%%      \verb+some short text here+ 
+%% use some other symbol than + if + is in the inside text.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{verbatim}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%\usepackage{afterpage} % (not working) inserts a new page: \afterpage{\null\newpage}
+%%
+%% Package 'tocbibind' adds the page numbers for contents, list of figures(LoF), 
+%% LoT and References to the Contents
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tocbibind}
+\usepackage[titletoc,toc,title]{appendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Define all Colors related things HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[dvipsnames]{xcolor}
+\colorlet{LightRoyalBlue}{RoyalBlue!70!}
+\definecolor{codeblue}{RGB}{0 0 190}
+\definecolor{royalblue}{HTML}{4169E1}
+\definecolor{burntorange}{HTML}{CC5500}
+\definecolor{verylightgray}{HTML}{EEEEEE}
+\definecolor{royalbluetradi}{rgb}{0.0, 0.14, 0.4}
+\definecolor{sapgreen}{rgb}{0.31, 0.49, 0.16}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% pstricks
+%% http://www.latex-community.org/forum/viewtopic.php?f=45&t=5886
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{pstricks}
+\usepackage{pstricks-add}
+%\usepackage{auto-pst-pdf} %enables pstricsk with 'pdflatex' command
+\usepackage{pst-rel-points}
+\psset{unit=.5mm} %default setting - fits most purpose
+%\fontsize{9pt}{9.1pt}\selectfont
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Uncomment this part to only checks syntax (and not produce a dvi file)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{syntonly}
+%\syntaxonly
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{amsmath,amsthm}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{exmp}{Example}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Adds command \prettyref{prefix:name}
+%% To use it the labels should be <prefix>:<name>
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{prettyref}
+\newrefformat{topic}{Topic~\ref{#1}}
+\newrefformat{subsec}{SubSection~\ref{#1}} % for sub or subsubsection
+\newrefformat{sec}{Section~\ref{#1}}
+\newrefformat{fig}{Figure~\ref{#1}}
+\newrefformat{table}{Table~\ref{#1}}
+\newrefformat{eq}{Equation~\ref{#1}}
+\newrefformat{lst}{Listing~\ref{#1}}
+\newrefformat{appdx}{Appendix~\ref{#1}}
+\newrefformat{chap}{Chapter~\ref{#1}}
+\newrefformat{bib}{\cite{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliography:
+%% use: \cite{<key>}
+%%      TEXT\parencite[see][p10]{latexcompanion} % = [see 1, p10]
+%%      TEXT\parencite[compare][]{knuthwebsite}
+%%      TEXT\parencite[e.g.][page 300]{einstein} % = [e.g. 1, page 300]
+%%
+%% TO PRINT bibliography use (at appropriate place in document):
+%% \printbibliography
+%% Package biblatex needs 'biber' instead of 'bibtex' for compilation
+%% the setting backend=bibtex makes it use bibtex8 (not bibtex!)
+%% (letting me use the same Makefile across projects)
+%% NOTE: Use bibtex8 always instead of deprecated bibtex   !!!!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[style=ieee,sorting=none,backend=bibtex]{biblatex}
+\usepackage[backend=bibtex,style=ieee]{biblatex}
+\addbibresource{references.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Other custom commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\margintext}[1]{\marginpar{\small{\textit{\textcolor{RoyalBlue}{#1}}}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% To add program snippets to the beamer slides
+% EXAMPLE USAGE:
+%    \begin{lstlisting}[language=Java, captionpos=t, frame=leftline, caption=Constant Propagation]
+%x = 10;
+%while(...) {
+%    if (x == 10) {
+%        DoSomething();
+%    } else {
+%        DoSomethingElse();
+%        x = x + 1;
+%    }
+%}\end{lstlisting}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{listings}
+
+%\usepackage{color} %statements below need package color
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\small\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=8pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    showlines=true
+}
+
+\lstset{style=mystyle}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Settings for color box with appropriate height
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{calc}
+
+%Define a reference depth. 
+%You can choose either relative or absolute.
+%--------------------------
+\newlength{\DepthReference}
+%\settodepth{\DepthReference}{g}%relative to a depth of a letter.
+\setlength{\DepthReference}{4pt}%absolute value.
+
+%Define a reference Height. 
+%You can choose either relative or absolute.
+%--------------------------
+\newlength{\HeightReference}
+%\settoheight{\HeightReference}{T}
+\setlength{\HeightReference}{4pt}
+
+
+%--------------------------
+\newlength{\Width}%
+
+\newcommand{\CodeBox}[2][verylightgray]%
+{%
+    \settowidth{\Width}{#2}%
+    %\setlength{\fboxsep}{0pt}%
+    \colorbox{#1}%
+    {%      
+        %\raisebox{\DepthReference}%
+        \raisebox{-1pt}%
+        {%
+            \parbox[b][\HeightReference+\DepthReference][c]{\Width}{\centering#2}%
+        }%
+    }%
+}
+
+\newcommand{\CodeBoxb}[2][verylightgray]%
+{%
+    \settowidth{\Width}{#2}%
+    %\setlength{\fboxsep}{0pt}%
+    \colorbox{#1}%
+    {%      
+        %\raisebox{\DepthReference}%
+        \raisebox{0pt}%
+        {%
+            \parbox[b][\HeightReference+\DepthReference][b]{\Width}{\centering#2}%
+        }%
+    }%
+}
+
+\newcommand{\CodeBoxt}[2][verylightgray]%
+{%
+    \settowidth{\Width}{#2}%
+    %\setlength{\fboxsep}{0pt}%
+    \colorbox{#1}%
+    {%      
+        %\raisebox{\DepthReference}%
+        \raisebox{-1pt}%
+        {%
+            \parbox[b][\HeightReference+\DepthReference][t]{\Width}{\centering#2}%
+        }%
+    }%
+}
+
+\newcommand{\CodeBoxtb}[2][verylightgray]%
+{%
+    \settowidth{\Width}{#2}%
+    %\setlength{\fboxsep}{0pt}%
+    \colorbox{#1}%
+    {%      
+        %\raisebox{\DepthReference}%
+        \raisebox{0pt}%
+        {%
+            \parbox[b][\HeightReference+\DepthReference][c]{\Width}{\centering#2}%
+        }%
+    }%
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% float barrier
+% Placeins.sty keeps floats ‘in their place’, preventing them from floating past a “ \FloatBarrier ” command into another section.  To use it, declare “ \usepackage{placeins} ” and insert “ \FloatBarrier ” at places that floats should not move past, perhaps at every “\section.”
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{placeins}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\cfgcode}[1]{\normalsize{\texttt{#1}}}
+\newcommand{\cfgcodefade}[1]{\normalsize{\color{lightgray}\texttt{#1}}}
+\newcommand{\cfgdata}[1]{\scriptsize{#1}}
+\newcommand{\cfgdatafade}[1]{\scriptsize{\color{lightgray}#1}}
+\newcommand{\cfgtitle}[1]{\normalsize{#1}}
+
+\usepackage{xspace}
+\newcommand{\typeof}{\textit{typeof}\xspace} %for inside math environment
+\newcommand{\Value}{\textit{Value}\xspace} %for inside math environment
+%\newcommand{\Code}[1]{\textcolor{codeblue}{\texttt{#1}}} % when writing code snippents inline
+\newcommand{\Line}[1]{\texttt{#1}} % when writing code snippents inline
+\newcommand{\Code}[1]{\CodeBox{\texttt{#1}}} % when writing code snippents inline
+\newcommand{\Codeb}[1]{\CodeBoxb{\texttt{#1}}} % when writing code snippents inline
+\newcommand{\Codet}[1]{\CodeBoxt{\texttt{#1}}} % when writing code snippents inline
+\newcommand{\Codetb}[1]{\CodeBoxtb{\texttt{#1}}} % when writing code snippents inline
+\newcommand{\Term}[1]{\textit{#1}} % when writing a term for the first time -- useful for creating a list of terms
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

@@ -10,13 +10,12 @@
 %% use: `convert a.jpg eps2:a.eps`  %% to insert jpeg images as eps
 %% use: `identify a.eps` command to find the dimensions of a.eps
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% openright works only with twoside, it opens each chapter on the right side
+
 \documentclass[a4paper,12pt]{article}
-%\usepackage{report} %% report.sty HAS ALL THE CONFIGURATIONS
+
 \newcommand{\Space}{\hspace{1ex}}
 \newcommand{\Sp}{\hspace{1ex}}
 \newcommand{\Heading}[1]{\textbf{\itshape\normalsize #1}}
-
 
 \usepackage[a4paper,lmargin=1.2cm,rmargin=1.2cm,tmargin=1.5cm,bmargin=1.5cm]{geometry}
 \usepackage{tabu}
@@ -52,8 +51,11 @@ IIT Bombay Campus, Mumbai, Maharashtra, 400076\newline%
 \end{tabular*}
 \rule[1pt]{\textwidth}{2pt}
 \begin{tabular*}{\textwidth}{m{0.95\textwidth} m{0.05\textwidth} }
-{\itshape{}\rule[3ex]{0ex}{0ex}My objective is to become an expert in my field of interest and foster understanding, passion and\newline%
-    self-learning ability in my students.} & \\
+{\itshape{}\rule[3ex]{0ex}{0ex}Program analysis and compiler techonology
+  are two unputdownable fields.
+  $P$ is the set of people who love to work on and discuss about them.
+  I am $\in P$.\newline%
+    } & \\
 \end{tabular*}
 
     \vspace{3mm}
